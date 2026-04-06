@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fib API Tester | Vibe Java</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+
+    <main class="container page-content">
+        <section class="page-panel api-panel">
+            <!-- Simple page for manually exercising the Fibonacci JSON API. -->
+            <p class="eyebrow">API Demo</p>
+            <h1>Test the Fibonacci API</h1>
+            <p>
+                Enter a number from 0 to 92 and this page will call <strong>/api/fib</strong>
+                using browser-side JavaScript.
+            </p>
+
+            <form class="fib-form" id="fib-form">
+                <label class="field-label" for="fib-number">Fibonacci index</label>
+                <div class="fib-form__row">
+                    <input id="fib-number" name="n" type="number" min="0" max="92" value="10" required>
+                    <button class="button" type="submit">Calculate</button>
+                </div>
+            </form>
+
+            <section class="api-result" aria-live="polite">
+                <h2>Result</h2>
+                <pre id="fib-output">Click calculate to load the API response.</pre>
+            </section>
+        </section>
+    </main>
+
+    <script>
+        const form = document.getElementById('fib-form');
+        const output = document.getElementById('fib-output');
+
+        async function loadFibonacci(n) {
+            output.textContent = 'Loading...';
+
+            try {
+                const response = await fetch(`/api/fib?n=${encodeURIComponent(n)}`);
+                const data = await response.json();
+                output.textContent = JSON.stringify(data, null, 2);
+            } catch (error) {
+                output.textContent = JSON.stringify({ error: 'Could not reach /api/fib' }, null, 2);
+            }
+        }
+
+        form.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            const formData = new FormData(form);
+            await loadFibonacci(formData.get('n'));
+        });
+    </script>
+</body>
+</html>
