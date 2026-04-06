@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home | Vibe Java</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+
+    <main class="container page-content">
+        <!-- Home page content for the default route. -->
+        <section class="hero">
+            <p class="eyebrow">Spring Boot + Thymeleaf</p>
+            <h1>Build a small Java website with a clean starting point.</h1>
+            <p class="lead">
+                This home page is rendered by Thymeleaf and served by a Spring MVC controller.
+                Use it as the base for adding more pages, forms, or database-backed features.
+            </p>
+            <div class="actions">
+                <a class="button" th:href="@{/about}">Learn more</a>
+                <a class="button button--secondary" th:href="@{/contact}">Get in touch</a>
+            </div>
+        </section>
+
+        <section class="card-grid">
+            <article class="card">
+                <h2>Simple MVC routes</h2>
+                <p>Each page has a small controller class so the routing is easy to understand.</p>
+            </article>
+            <article class="card">
+                <h2>Reusable templates</h2>
+                <p>The shared header lives in a Thymeleaf fragment and is included on every page.</p>
+            </article>
+            <article class="card">
+                <h2>Static assets</h2>
+                <p>The stylesheet is served from the standard static resources folder.</p>
+            </article>
+        </section>
+    </main>
+</body>
+</html>

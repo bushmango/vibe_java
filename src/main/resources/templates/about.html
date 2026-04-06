@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About | Vibe Java</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+
+    <main class="container page-content">
+        <!-- About page content explaining the structure of the demo site. -->
+        <section class="page-panel">
+            <p class="eyebrow">About this project</p>
+            <h1>Why this starter is structured this way</h1>
+            <p>
+                The project keeps the Java code and HTML templates separated in the standard Spring Boot
+                directories, which makes it easier to navigate when you are learning Spring MVC.
+            </p>
+            <p>
+                Controllers decide which template to render, Thymeleaf builds the HTML, and static files like
+                CSS are served from the <strong>static</strong> folder.
+            </p>
+        </section>
+    </main>
+</body>
+</html>

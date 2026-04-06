@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Vibe Java</title>
+    <link rel="stylesheet" th:href="@{/css/site.css}">
+</head>
+<body>
+    <div th:replace="~{fragments/header :: siteHeader}"></div>
+
+    <main class="container page-content">
+        <!-- Contact page content for a simple static contact section. -->
+        <section class="page-panel">
+            <p class="eyebrow">Contact</p>
+            <h1>Get in touch</h1>
+            <p>If you want to expand this demo, this page is a good place to add a Thymeleaf form next.</p>
+
+            <div class="contact-list">
+                <p><strong>Email:</strong> hello@example.com</p>
+                <p><strong>Phone:</strong> (555) 010-8080</p>
+                <p><strong>Location:</strong> Your local Spring Boot dev environment</p>
+            </div>
+        </section>
+    </main>
+</body>
+</html>

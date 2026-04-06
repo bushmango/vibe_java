@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<body>
+    <!-- Shared site header and navigation used by every page template. -->
+    <header class="site-header" th:fragment="siteHeader">
+        <div class="container site-header__inner">
+            <a class="brand" th:href="@{/}">Vibe Java</a>
+            <nav class="site-nav" aria-label="Main navigation">
+                <a th:href="@{/}">Home</a>
+                <a th:href="@{/about}">About</a>
+                <a th:href="@{/contact}">Contact</a>
+            </nav>
+        </div>
+    </header>
+</body>
+</html>
